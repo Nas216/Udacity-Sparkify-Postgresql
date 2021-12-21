@@ -29,34 +29,35 @@ the fact table songplays would then be created using the data from those dimensi
      from sql_queries import create_table_queries, drop_table_queries
      ```
       #### Functions:
-      ```create_database```: it drops any existed connection to the sparkifydb and creates a new connection.
-
-      ```drop_tables```: it drops existed tables.
-
-      ```create_tables```: it creates tables accordng to the sql statements in *sql_queries* .
+     ```create_database```: it drops any existed connection to the sparkifydb and creates a new connection.
+     
+     ```drop_tables```: it drops existed tables.
+     
+     ```create_tables```: it creates tables accordng to the sql statements in *sql_queries* .
+     
 
 3. **`etl.ipynb`**: is a pythonic notebook that reads and processes a single file fro the data source into the already created tables. The importance of this file is that is contains detailed instructions on the ETL processes needed.
 
 4. **`test.ipynb`**: is pythonic notebook that contains python codes to test whether the tables are correctley created and populated.
 
-5.**`etl.py`**: is a pyhton code that reads and processes all files from the data source all at once.
-   ####  Libraries imported:
-   
-        ```python
-     import os
-     import glob
-     import psycopg2
-     import pandas as pd
-     import datetime 
-     from sql_queries import * 
-       ```
-  
-  ####   Functions:
-       ```process_song_file```: it reads JSON files from song_data and populates the prespective columns in *songs* and *artisits* tables.
-       ```process_log_file```: it reads JSON files from log_data and populates the prespective columns in *time*, *users* and *songplays* tables.
-       ```process_data```: it uses the previous two functions to get all files matching extension from directory and produce the total number of files found.
+5. **`Untitled.ipynb`**: is a blank pythonic notebook that I use to run the executing codes needed to fulfill the ETL processes
 
-6. **`Untitled.ipynb`**: is a blank pythonic notebook that I use to run the executing codes needed to fulfill the ETL processes
+6.**`etl.py`**: is a pyhton code that reads and processes all files from the data source all at once.
+#### Functions:
 
+   `process_song_file` : it reads JSON files from song_data and populates the prespective columns in songs and artisits tables.
+       
+   `process_log_file` : it reads JSON files from log_data and populates the prespective columns in *time*, *users* and *songplays* tables.
+       
+   `process_data` : it uses the previous two functions to get all files matching extension from directory and produce the total number of files found.
+   #### Libraries imported:
+   ```python
+    import os
+    import glob
+    import psycopg2
+    import pandas as pd
+    imoprt datetime
+    from sql_queries import *
+     ``` 
 
 
