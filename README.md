@@ -14,24 +14,48 @@ the fact table songplays would then be created using the data from those dimensi
 
 
 
+
+
+
+
+
 #### *Modeling process*:
-1. ```sql_queries.py ```: is a python code that contains the SQL queries needed to create the fact and dimension tables, in addition to the other queries needed to populate these tables and run selective queries needed for the analysis, namely: song_select
-2. ```create_tables.py```: is a python code that defines the functions needed to create and drop tables in Python using the SQL queries encoded in sql_queries.py
+1. **`sql_queries.py`**: is a python code that contains the SQL queries needed to create the fact and dimension tables, in addition to the other queries needed to populate these tables and run selective queries needed for the analysis, namely: song_select
+
+2. **`create_tables.py`**: is a python code that defines the functions needed to create and drop tables in Python using the SQL queries encoded in sql_queries.py
     #### Libraries imported:
      ```python
      import psycopg2
      from sql_queries import create_table_queries, drop_table_queries
      ```
       #### Functions:
-      **[create_database][df1]**: it drops any existed connection to the sparkifydb and creates a new connection.
+      ```create_database```: it drops any existed connection to the sparkifydb and creates a new connection.
 
-      **drop_tables**: it drops existed tables.
+      ```drop_tables```: it drops existed tables.
 
-      **create_tables**: it creates tables accordng to the sql statements in *sql_queries* .
-4. ```etl.ipynb```: is a pythonic notebook that reads and processes a single file fro the data source into the already created tables. The importance of this file is that is contains detailed instructions on the ETL processes needed.
-5. ```test.ipynb```: is pythonic notebook that contains python codes to test whether the tables are correctley created and populated.
-6.```etl.py```: is a pyhton code that reads and processes all files from the data source all at once. 
-7. ```Untitled.ipynb```: is a blank pythonic notebook that I use to run the executing codes needed to fulfill the ETL processes
+      ```create_tables```: it creates tables accordng to the sql statements in *sql_queries* .
+
+3. **`etl.ipynb`**: is a pythonic notebook that reads and processes a single file fro the data source into the already created tables. The importance of this file is that is contains detailed instructions on the ETL processes needed.
+
+4. **`test.ipynb`**: is pythonic notebook that contains python codes to test whether the tables are correctley created and populated.
+
+5.**`etl.py`**: is a pyhton code that reads and processes all files from the data source all at once.
+   ####  Libraries imported:
+    ```python
+       import os
+       import glob
+       import psycopg2
+       import pandas as pd
+       import datetime 
+       from sql_queries import * 
+     ```
+  
+  ####   Functions:
+    ```process_song_file```: it reads JSON files from song_data and populates the prespective columns in *songs* and *artisits* tables.
+    ```process_log_file```: it reads JSON files from log_data and populates the prespective columns in *time*, *users* and *songplays* tables.
+    ```process_data```: it uses the previous two functions to get all files matching extension from directory and produce the total number of files found.
+
+6. **`Untitled.ipynb`**: is a blank pythonic notebook that I use to run the executing codes needed to fulfill the ETL processes
 
 
 
