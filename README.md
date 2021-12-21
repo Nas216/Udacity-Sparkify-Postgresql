@@ -41,19 +41,20 @@ the fact table songplays would then be created using the data from those dimensi
 
 5.**`etl.py`**: is a pyhton code that reads and processes all files from the data source all at once.
    ####  Libraries imported:
-    ```python
-       import os
-       import glob
-       import psycopg2
-       import pandas as pd
-       import datetime 
-       from sql_queries import * 
-     ```
+   
+        ```python
+     import os
+     import glob
+     import psycopg2
+     import pandas as pd
+     import datetime 
+     from sql_queries import * 
+       ```
   
   ####   Functions:
-    ```process_song_file```: it reads JSON files from song_data and populates the prespective columns in *songs* and *artisits* tables.
-    ```process_log_file```: it reads JSON files from log_data and populates the prespective columns in *time*, *users* and *songplays* tables.
-    ```process_data```: it uses the previous two functions to get all files matching extension from directory and produce the total number of files found.
+       ```process_song_file```: it reads JSON files from song_data and populates the prespective columns in *songs* and *artisits* tables.
+       ```process_log_file```: it reads JSON files from log_data and populates the prespective columns in *time*, *users* and *songplays* tables.
+       ```process_data```: it uses the previous two functions to get all files matching extension from directory and produce the total number of files found.
 
 6. **`Untitled.ipynb`**: is a blank pythonic notebook that I use to run the executing codes needed to fulfill the ETL processes
 
