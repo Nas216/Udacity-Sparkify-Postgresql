@@ -1,11 +1,11 @@
-#Sparkify Project
+# Sparkify Project
 Sparkify is a startup that provides music streaming through its application. The business is built up using an application that stores information about the users and their selections. The data is stored in JSON format. The company wants to analyze the users' activities to enhance their recommendations based on these activities. There is an option of running SQL queries over the stored data, however, this option carries drawbacks more than the benefits it provides. For example, accomedating the ever-increasing data would slow down the query and render it unuseful day after another. 
 The other option the company has is creating a database that accomedate the stored data and run queries on the database rather than on the JSON files. To do so, the company needs a medeling technique that fits their needs. A STAR schema that has a fact table correlates with some dimension tables would do the job.
 The fact table in this schema can be built to facilitate for business analysis requirements. Therefore, the fact table would include attributes to the dimension tables in addition to variables that the company wants to analyze. The dimension tables, however, would include information about the users, songs, artisits, and the time of listening to the songs. 
 
 
 
-ETL:
+#### ETL:
 the first step is to Extract the data from the JSON files, Transform it, and finally Load it into the database.
 We have two sources of data: 
 - log_data: from which the data of users and time dimension tables would be extracted.
@@ -14,8 +14,8 @@ the fact table songplays would then be created using the data from those dimensi
 
 
 
-Modeling process:
-1). sql_queries.py: is a python code that contains the SQL queries needed to create the fact and dimension tables, in addition to the other queries needed to populate these tables and run selective queries needed for the analysis, namely: song_select
+#### Modeling process:
+1). ```sh sql_queries.py ```: is a python code that contains the SQL queries needed to create the fact and dimension tables, in addition to the other queries needed to populate these tables and run selective queries needed for the analysis, namely: song_select
 2). create_tables.py: is a python code that defines the functions needed to create and drop tables in Python using the SQL queries encoded in sql_queries.py
 3). etl.ipynb: is a pythonic notebook that reads and processes a single file fro the data source into the already created tables. The importance of this file is that is contains detailed instructions on the ETL processes needed.
 4). test.ipynb: is pythonic notebook that contains python codes to test whether the tables are correctley created and populated.
