@@ -23,7 +23,7 @@ the fact table songplays would then be created using the data from those dimensi
      from sql_queries import create_table_queries, drop_table_queries
      ```
       #### Functions:
-      **[create_database]**: it drops any existed connection to the sparkifydb and creates a new connection.
+      **[create_database][df1]**: it drops any existed connection to the sparkifydb and creates a new connection.
 
       **drop_tables**: it drops existed tables.
 
